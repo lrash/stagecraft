@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-cloud-fetch"
+description = "Enables the cloud_fetch command without any pre-configured scope."
+commands.allow = ["cloud_fetch"]
+
+[[permission]]
+identifier = "deny-cloud-fetch"
+description = "Denies the cloud_fetch command without any pre-configured scope."
+commands.deny = ["cloud_fetch"]

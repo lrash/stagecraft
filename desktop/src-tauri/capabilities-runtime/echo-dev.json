@@ -1,0 +1,9 @@
+{
+  "identifier": "echo-dev",
+  "description": "Debug builds only, with STAGECRAFT_SELFTEST_ECHO=1: the A-6/A-7 echo server port",
+  "windows": ["main", "main-*"],
+  "local": true,
+  "permissions": [
+    { "identifier": "http:default", "allow": [ { "url": "http://127.0.0.1:11435/*" } ] }
+  ]
+}

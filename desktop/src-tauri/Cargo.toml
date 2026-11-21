@@ -1,0 +1,48 @@
+[package]
+name = "stagecraft"
+version = "2.0.0"
+description = "Stagecraft desktop: walks an idea through seven stages on local models"
+edition = "2021"
+publish = false
+
+[lib]
+name = "stagecraft_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2.12", features = [] }                               # >= 2.11.1 (R-78)
+tauri-plugin-http = { version = "2.5.7", features = ["unsafe-headers"] }  # >=2.5.7,<3
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sysinfo = { version = "0.40", default-features = false, features = ["system"] }
+# v2 (D-27): keys live in the OS keychain through keyring-core and one native store per OS.
+keyring-core = "1"
+tokio = { version = "1", features = ["sync", "macros", "time"] }
+# 2026-11-18: "Sign in with OpenRouter" (OAuth PKCE, src/oauth.rs). All three were already in the lock.
+sha2 = "0.10"
+base64 = "0.22"
+getrandom = "0.2"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+zbus-secret-service-keyring-store = { version = "1", features = ["crypto-rust"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+apple-native-keyring-store = { version = "1", features = ["keychain"] }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+windows-native-keyring-store = "1"
+
+[dev-dependencies]
+tauri-utils = "2"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true

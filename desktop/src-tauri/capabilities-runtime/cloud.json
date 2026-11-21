@@ -1,0 +1,24 @@
+{
+  "identifier": "cloud",
+  "description": "v2: added at runtime only after the user opted in (R-84, D-25). Every grant that reaches the network or stores a key. The cloud-fetch scope repeats ENDPOINTS (R-88).",
+  "windows": ["main", "main-*"],
+  "local": true,
+  "permissions": [
+    { "identifier": "allow-cloud-fetch",
+      "allow": [
+        { "provider": "openrouter", "method": "GET",  "path": "/api/v1/key" },
+        { "provider": "openrouter", "method": "GET",  "path": "/api/v1/models" },
+        { "provider": "openrouter", "method": "POST", "path": "/api/v1/chat/completions" },
+        { "provider": "groq",       "method": "GET",  "path": "/openai/v1/models" },
+        { "provider": "groq",       "method": "POST", "path": "/openai/v1/chat/completions" },
+        { "provider": "gemini",     "method": "GET",  "path": "/v1beta/models" },
+        { "provider": "gemini",     "method": "POST", "path": "/v1beta/models/{model}:generateContent" }
+      ] },
+    "allow-cloud-fetch-cancel",
+    "allow-cloud-provider-set",
+    "allow-secret-set",
+    "allow-openrouter-sign-in",
+    { "identifier": "opener:allow-open-url",
+      "allow": [ { "url": "https://openrouter.ai/keys" }, { "url": "https://console.groq.com/keys" }, { "url": "https://aistudio.google.com/apikey" } ] }
+  ]
+}

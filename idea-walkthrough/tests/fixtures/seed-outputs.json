@@ -1,0 +1,11 @@
+{
+  "note": "D-29: earlier stage outputs a debug self-test seeds before running one stage (STAGECRAFT_SELFTEST_STAGE=<id>). Fixed text, so every run sends the same prompt.",
+  "idea": "A weekly paper planner for a small allotment garden: what to sow, water and harvest each week, printed on one A4 sheet.",
+  "outputs": {
+    "capture": "SOURCE FACTS\n- One A4 sheet, printed.\n- Weekly: what to sow, water and harvest.\n- For a small allotment garden.\n\nREQUIREMENTS\n- Fits on one page.\n\nMUST NOT INVENT\n- Crops or climate the author did not name.",
+    "diverge": "1. A grid of 52 weeks by three actions.\n2. A seasonal wheel.\n3. A checklist per bed.",
+    "structure": "Start with the 52-week grid; the wheel and the bed checklist are variants of it.",
+    "deepen": "The grid needs a legend and a way to mark weeks done; one A4 sheet limits it to about 12 crops.",
+    "critique": "1. HIGH if a gardener grows more than 12 crops, the sheet overflows.\n2. MEDIUM watering depends on weather, which a printed sheet cannot know."
+  }
+}

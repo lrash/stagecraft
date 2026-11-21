@@ -1,0 +1,7 @@
+{
+  "identifier": "selftest",
+  "description": "Added at runtime only when STAGECRAFT_SELFTEST is set (DESIGN R-80)",
+  "windows": ["main", "main-*"],
+  "local": true,
+  "permissions": ["allow-selftest-report"]
+}

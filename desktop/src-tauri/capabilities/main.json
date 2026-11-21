@@ -1,0 +1,17 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main",
+  "description": "The five Ollama endpoints the page reads, native ask, ollama.com links, the app's own commands (pulls go through ollama_pull). v2 adds only the four cloud commands that reach no network and return no key (D-25); the rest are in capabilities-runtime/cloud.json, added only after opt-in",
+  "windows": ["main", "main-*"],
+  "local": true,
+  "permissions": [
+    "core:default",
+    { "identifier": "http:default",
+      "allow": [ { "url": "http://127.0.0.1:11434/api/version" }, { "url": "http://127.0.0.1:11434/api/tags" }, { "url": "http://127.0.0.1:11434/api/show" }, { "url": "http://127.0.0.1:11434/api/ps" }, { "url": "http://127.0.0.1:11434/api/chat" } ] },
+    "dialog:allow-ask",
+    { "identifier": "opener:allow-open-url", "allow": [ { "url": "https://ollama.com/*" } ] },
+    "allow-state-save", "allow-save-export", "allow-sys-info", "allow-flush-done",
+    "allow-ollama-pull", "allow-ollama-pull-cancel",
+    "allow-cloud-enable", "allow-cloud-disable", "allow-secret-has", "allow-secret-delete"
+  ]
+}
